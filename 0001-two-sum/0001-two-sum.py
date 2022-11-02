@@ -5,7 +5,9 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        for i in range(len(nums)):
-            for x in range(len(nums)):
+        length = range(len(nums))
+        for i in length:
+            for x in length:
                 if nums[i] + nums[x] == target and i != x:
                     return [i, x]
+#                 hello
