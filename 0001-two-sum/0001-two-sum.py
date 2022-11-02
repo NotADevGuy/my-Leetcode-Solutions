@@ -5,9 +5,9 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        length = range(len(nums))
-        for i in length:
-            for x in length:
-                if nums[i] + nums[x] == target and i != x:
+        # for i, x in enumerate(nums):
+        #     print("i: {} x: {}".format(i, x))
+        for i in range(len(nums)):
+            for x in range(i + 1, len(nums)):
+                if (nums[i] + nums[x] == target) and (i != x):
                     return [i, x]
-#                 hello
