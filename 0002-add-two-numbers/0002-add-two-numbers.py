@@ -11,7 +11,6 @@ class Solution(object):
         :rtype: ListNode
         """
         leftover = 0
-        ft = False
         value = l1.val+l2.val
         if value >= 10:
             value = value - 10
