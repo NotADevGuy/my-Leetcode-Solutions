@@ -32,14 +32,8 @@ class Solution(object):
             if value >= 10:
                 value = value - 10
                 leftover += 1
-            
-            if not ft:
-                curr.next = ListNode(val=value)
-                curr = curr.next
-            # elif ft:
-            #     ft = False
-            #     head = ListNode(val=value)
-            #     curr = head
+            curr.next = ListNode(val=value)
+            curr = curr.next
         if leftover != 0:
             curr.next = ListNode(val=leftover)
         return head
