@@ -24,6 +24,7 @@ class Solution(object):
             if value >= 10:
                 value = value - 10
                 leftover += 1
+            
             if not ft:
                 curr.next = ListNode(val=value)
                 curr = curr.next
