@@ -13,7 +13,8 @@ class Solution(object):
                     trash.append(char)
                 elif char in trash:
                     break
-            bestLength = bestLength if len(trash) <= bestLength else len(trash)
+            if len(trash) > bestLength:
+                bestLength = len(trash)
             trash = []
             s.pop(0)
         return bestLength
