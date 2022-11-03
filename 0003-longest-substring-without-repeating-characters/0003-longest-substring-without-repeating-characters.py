@@ -5,15 +5,15 @@ class Solution(object):
         :rtype: int
         """
         s = list(s)
-        length, bestLength, trash = 0, 0, []
+        trash = []
+        bestLength = 0
         while s:
             for char in s:
                 if char not in trash:
                     trash.append(char)
-                    length += 1
                 elif char in trash:
                     break
-            bestLength = length if length > bestLength else bestLength
-            length, trash = 0, []
+            bestLength = bestLength if len(trash) <= bestLength else len(trash)
+            trash = []
             s.pop(0)
         return bestLength
