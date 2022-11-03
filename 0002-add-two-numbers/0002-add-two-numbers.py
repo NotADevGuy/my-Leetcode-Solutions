@@ -11,7 +11,15 @@ class Solution(object):
         :rtype: ListNode
         """
         leftover = 0
-        ft = True
+        ft = False
+        value = l1.val+l2.val
+        if value >= 10:
+            value = value - 10
+            leftover += 1
+        head = ListNode(val=value)
+        l1 = l1.next
+        l2 = l2.next
+        curr = head
         while l1 or l2:
             value = leftover
             leftover = 0
@@ -28,10 +36,10 @@ class Solution(object):
             if not ft:
                 curr.next = ListNode(val=value)
                 curr = curr.next
-            elif ft:
-                ft = False
-                head = ListNode(val=value)
-                curr = head
+            # elif ft:
+            #     ft = False
+            #     head = ListNode(val=value)
+            #     curr = head
         if leftover != 0:
             curr.next = ListNode(val=leftover)
         return head
