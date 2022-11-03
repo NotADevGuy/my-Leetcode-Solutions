@@ -5,32 +5,32 @@
 #         self.next = next
 class Solution(object):
     def addTwoNumbers(self, l1, l2):
-        a1, a2 = [], []
-        tmp = l1
-        while tmp != None:
-            a1.append(tmp.val)
-            tmp = tmp.next
-        tmp = l2
-        while tmp != None:
-            a2.append(tmp.val)
-            tmp = tmp.next
-
-        answer = (list(str(int("".join(str(num) for num in a1[::-1])) + int("".join(str(num) for num in a2[::-1])))))[::-1]
-
-        def insert2(root, item):
-            temp = ListNode(item)
-            if root == None:
-                root = temp
-            else:
-                ptr = root
-                while ptr.next != None:
-                    ptr = ptr.next
-                ptr.next = temp
-
-            return root
-
-        root = None
-        for i in range(0, len(answer), 1):
-            root = insert2(root, answer[i])
-
-        return root
+        """
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        """
+        leftover = 0
+        ft = True
+        while l1 or l2:
+            value = leftover
+            leftover = 0
+            if l1:
+                value += l1.val
+                l1 = l1.next
+            if l2:
+                value += l2.val
+                l2 = l2.next
+            if value >= 10:
+                value = value - 10
+                leftover += 1
+            if not ft:
+                curr.next = ListNode(val=value)
+                curr = curr.next
+            elif ft:
+                ft = False
+                head = ListNode(val=value)
+                curr = head
+        if leftover != 0:
+            curr.next = ListNode(val=leftover)
+        return head
