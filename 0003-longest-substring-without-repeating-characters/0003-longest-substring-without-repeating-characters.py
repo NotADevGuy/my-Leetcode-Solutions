@@ -15,6 +15,6 @@ class Solution(object):
                     break
             if len(trash) > bestLength:
                 bestLength = len(trash)
-            trash = []
+            del trash[:]
             s.pop(0)
         return bestLength
