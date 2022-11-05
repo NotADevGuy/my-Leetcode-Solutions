@@ -4,17 +4,27 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        s = list(s)
-        trash = []
-        bestLength = 0
-        while s:
-            for char in s:
-                if char not in trash:
-                    trash.append(char)
-                elif char in trash:
-                    break
-            if len(trash) > bestLength:
-                bestLength = len(trash)
-            del trash[:]
-            s.pop(0)
-        return bestLength
+        seen = {}
+        start = 0
+        maxlength = 0
+        for i in range(len(s)):
+            if s[i] in seen and start <= seen[s[i]]:
+                start = seen[s[i]] + 1
+            else:
+                maxlength = max(maxlength, (i - start + 1))
+            seen[s[i]] = i
+        return maxlength        
+        
+        
+        """
+        used = {}
+        max_length = start = 0
+        for i, c in enumerate(s):
+            if c in used and start <= used[c]:
+                start = used[c] + 1
+            else:
+                max_length = max(max_length, i - start + 1)
+
+            used[c] = i
+        return max_length    
+        """
