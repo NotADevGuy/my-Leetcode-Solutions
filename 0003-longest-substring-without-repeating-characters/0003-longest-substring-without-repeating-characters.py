@@ -14,12 +14,3 @@ class Solution(object):
                 maxlength = max(maxlength, (i - start + 1))
             seen[char] = i
         return maxlength
-    
-        """
-        for i in range(len(s)):
-            if s[i] in seen and start <= seen[s[i]]:
-                start = seen[s[i]] + 1
-            else:
-                maxlength = max(maxlength, (i - start + 1))
-            seen[s[i]] = i
-        return maxlength"""
