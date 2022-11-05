@@ -22,7 +22,6 @@ class Solution(object):
                 else:
                     srt.append(nums2[i2])
                     i2 += 1
-        print(srt)
         # srt = (nums1 + nums2)
         # srt.sort()
         if length % 2 == 1:
