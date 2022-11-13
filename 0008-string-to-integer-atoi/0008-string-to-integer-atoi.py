@@ -5,9 +5,9 @@ class Solution(object):
         :rtype: int
         """
         neg = False
-        nums = []
         s = s.lstrip()
         tmp = ''
+        
         if len(s) == 0:
             return 0
         if s[0] == '-':
@@ -18,18 +18,15 @@ class Solution(object):
         for letter in s:
             if letter.isdigit():
                 tmp += letter
-            elif not letter.isdigit():
+            else:
                 break
 
         try:
-            if neg:
-                tmp = int('-' + tmp)
-                if tmp < (-2**31):
-                    tmp = -2**31
-            else:
-                tmp = int(tmp)
-                if tmp > (2**31 - 1):
-                    tmp = (2**31 - 1)
+            tmp = int('-' + tmp) if neg else int(tmp)
+            if tmp < (-2**31):
+                return -2**31
+            elif tmp > (2**31 - 1):
+                return 2**31 - 1
         except:
             return 0
 
