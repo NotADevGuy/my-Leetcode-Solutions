@@ -1,32 +1,14 @@
 class Solution(object):
-    def romanToInt(self, s):
+    def longestCommonPrefix(self, strs):
         """
-        :type s: str
-        :rtype: int
+        :type strs: List[str]
+        :rtype: str
         """
-        total = 0
-        s = s.replace("CM", "DCCCC")
-        s = s.replace("CD", "CCCC")
-
-        s = s.replace("XC", "LXXXX")
-        s = s.replace("XL", "XXXX")
-
-        s = s.replace("IX", "VIIII")
-        s = s.replace("IV", "IIII")
-
-        for char in list(s):
-            if char == "M":
-                total += 1000
-            elif char == "D":
-                total += 500
-            elif char == "C":
-                total += 100
-            elif char == "L":
-                total += 50
-            elif char == "X":
-                total += 10
-            elif char == "V":
-                total += 5
-            elif char == "I":
-                total += 1
-        return total
+        if (len(strs) == 1) or (''.join(strs) == strs[0]*len(strs)):
+            return strs[0]
+        longest = max(strs, key=len)
+        for i in range(1, len(longest) + 1):
+            for item in strs:
+                if item[:i] != longest[:i]:
+                    return longest[:i - 1]
+        return ''
