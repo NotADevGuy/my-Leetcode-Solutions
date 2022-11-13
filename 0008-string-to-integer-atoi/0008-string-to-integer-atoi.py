@@ -7,7 +7,6 @@ class Solution(object):
         neg = False
         s = s.lstrip()
         tmp = ''
-        
         if len(s) == 0:
             return 0
         if s[0] == '-':
@@ -26,7 +25,7 @@ class Solution(object):
             if tmp < (-2**31):
                 return -2**31
             elif tmp > (2**31 - 1):
-                return 2**31 - 1
+                    return 2**31 - 1
         except:
             return 0
 
